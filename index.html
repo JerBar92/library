@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="title">
+        <h1>My Library</h1>
+      </div>
+    </div>
+    <div class="button">
+      <button class="addBook">NEW BOOK</button>
+    </div>
+    <dialog id="newBookInfo">
+      <form method="dialog">
+        <section class="info">
+          <label for="title">Title: </label>
+          <input type="text" id="title" name="title" />
+          <label for="author">Author: </label>
+          <input type="text" id="author" name="author" />
+          <label for="pages">Pages: </label>
+          <input type="number" id="pages" name="pages" />
+          <label for="genre">Genre: </label>
+          <select id="genre" name="genre">
+            <option value="fantasy">Fantasy</option>
+            <option value="science-fiction">Science-Fiction</option>
+            <option value="horror">Horror</option>
+            <option value="thriller">Thriller</option>
+            <option value="adventure">Adventure</option>
+            <option value="historical">Historical</option>
+            <option value="fiction">Fiction</option>
+            <option value="romance">Romance</option>
+            <option value="classic">Classic</option>
+            <option value="essay">Essay</option>
+          </select>
+          <div class="checkbox">
+            <label for="read">Read</label>
+            <input type="checkbox" id="read" name="read" />
+          </div>
+        </section>
+        <section class="validation">
+          <button class="cancel">Cancel</button>
+          <button class="send" type="submit">Send to Library</button>
+        </section>
+      </form>
+    </dialog>
+    <div class="bookList"></div>
+  </body>
+</html>

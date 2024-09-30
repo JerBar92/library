@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(img/Library.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100vh;
+  height: 9rem;
+}
+
+.title {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  font-size: 3rem;
+  color: rgb(211, 208, 210);
+}
+
+label,
+input,
+button {
+  font-family: inherit;
+}
+
+.button {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addBook {
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button,
+.bookList {
+  background-color: beige;
+}
+
+.bookList {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+#newBookInfo {
+  min-height: 400px;
+  min-width: 300px;
+  padding: 1rem;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checbox {
+  display: flex;
+  align-items: center;
+}
+
+.validation {
+  margin-top: 1rem;
+}
