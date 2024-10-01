@@ -1,4 +1,5 @@
 const myLibrary = [];
+
 const addBook = document.querySelector(".addBook");
 const newBookInfo = document.querySelector("#newBookInfo");
 const cancel = document.querySelector(".cancel");
@@ -9,14 +10,15 @@ const pages = document.querySelector("#pages");
 const genre = document.querySelector("#genre");
 const read = document.querySelector("#read");
 const bookList = document.querySelector(".bookList");
+const bookCard = document.querySelector(".bookCard");
 const remove = document.querySelector(".remove");
-const readingStatus = document.querySelector(".status");
+const readingStatus = document.querySelector(".reading");
 
-function Book(title, author, pages, [genre], read) {
+function Book(title, author, pages, genre, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.genre = [genre];
+  this.genre = genre;
   this.read = read;
 }
 
@@ -32,32 +34,39 @@ function addBookToLibrary() {
 }
 
 function displayBook() {
-  const newBook = document.createElement("div");
+  const newBookCard = document.createElement("div");
   const newTitle = document.createElement("p");
   const newAuthor = document.createElement("P");
   const newPages = document.createElement("p");
   const newGenre = document.createElement("p");
   const newRead = document.createElement("button");
   const newRemove = document.createElement("button");
-  newBook.classList.add("bookCard");
-  newRead.classList.add("status");
+
+  newBookCard.classList.add("bookCard");
+  newRead.classList.add("reading");
   newRemove.classList.add("remove");
-  for (let i = 0; i < myLibrary.length; i++) {
-    newTitle.textContent = `Title: ${title.value}`;
-    newAuthor.textContent = `Author: ${author.value}`;
-    newPages.textContent = `Pages: ${pages.value}`;
-    newGenre.textContent = `Genre: ${genre.value}`;
+
+  myLibrary.forEach((book, index) => {
+    newTitle.textContent = `Title: ${book.title}`;
+    newAuthor.textContent = `Author: ${book.author}`;
+    newPages.textContent = `Pages: ${book.pages}`;
+    newGenre.textContent = `Genre: ${book.genre}`;
     newRead.textContent = read.checked ? "Read" : "Not read";
     newRemove.textContent = "Remove";
-    newBook?.appendChild(newTitle);
-    newBook?.appendChild(newAuthor);
-    newBook?.appendChild(newPages);
-    newBook?.appendChild(newGenre);
-    newBook?.appendChild(newRead);
-    newBook.appendChild(newRemove);
-    newBook.setAttribute("data-index", i);
-    bookList?.appendChild(newBook);
-  }
+
+    newBookCard?.appendChild(newTitle);
+    newBookCard?.appendChild(newAuthor);
+    newBookCard?.appendChild(newPages);
+    newBookCard?.appendChild(newGenre);
+    newBookCard?.appendChild(newRead);
+    newBookCard.appendChild(newRemove);
+    bookList?.appendChild(newBookCard);
+
+    newRemove.addEventListener("click", () => {
+      myLibrary.splice(index, 1);
+      bookList?.removeChild(newBookCard);
+    });
+  });
 }
 
 function clear() {
